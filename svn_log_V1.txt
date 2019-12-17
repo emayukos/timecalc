@@ -1,0 +1,30 @@
+------------------------------------------------------------------------
+r18 | ems032@USASK.CA | 2018-12-03 21:27:20 -0600 (Mon, 03 Dec 2018) | 1 line
+
+Tagging initial version of trunk as V1
+------------------------------------------------------------------------
+r14 | ems032@USASK.CA | 2018-12-03 21:16:02 -0600 (Mon, 03 Dec 2018) | 1 line
+
+initial version of time_calc.c from assignment 3
+------------------------------------------------------------------------
+r12 | ems032@USASK.CA | 2018-12-03 21:04:01 -0600 (Mon, 03 Dec 2018) | 1 line
+
+subdirectory for time_calc program trunk
+------------------------------------------------------------------------
+ems032@tux7:~/time_calcWrk/V1> svn update
+Updating '.':
+At revision 57.
+ems032@tux7:~/time_calcWrk/V1> svn log
+------------------------------------------------------------------------
+r18 | ems032@USASK.CA | 2018-12-03 21:27:20 -0600 (Mon, 03 Dec 2018) | 1 line
+
+Tagging initial version of trunk as V1
+------------------------------------------------------------------------
+r14 | ems032@USASK.CA | 2018-12-03 21:16:02 -0600 (Mon, 03 Dec 2018) | 1 line
+
+initial version of time_calc.c from assignment 3
+------------------------------------------------------------------------
+r12 | ems032@USASK.CA | 2018-12-03 21:04:01 -0600 (Mon, 03 Dec 2018) | 1 line
+
+subdirectory for time_calc program trunk
+------------------------------------------------------------------------

@@ -1,0 +1,370 @@
+Emily Smith
+11233272
+ems032
+
+fixed program to work on test cases that didn't work in last assignment:
+
+# program should fail, addition would result in exceeding limit
+ems032@tux6:~/time_calcWrk/trunk> time_calc add 69y1n3d1h29m45s 74y1n1d1h5m16s
+error: time range exceeded
+# test successful
+
+# program should fail, would result in negative time value
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt '1y 1n 1d 1h 1m 0s' 34277461
+error: negative time not allowed
+# test successful
+
+# program should fail, addition would result in exceeding limit
+ems032@tux6:~/time_calcWrk/trunk> time_calc add 99y11n30d10h29m59s 1        
+error: time range exceeded
+# test successful
+
+# program should fail, subtraction would result in negative time value
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt 1 34277461         
+error: negative time not allowed
+# test successful
+
+# program should print usage without any error messages
+Emilys-MacBook-Air:CMPT214 Emi$ ./time_calc help
+error: too few arguments
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp}
+# test successful
+
+
+
+
+# testing for valid input
+# -----------------------
+
+
+# program should succeed, output '1y 0n 0d 0h 0m 0s' (specifically test year)
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 31557600
+1y0n0d0h0m0s
+# test successful
+
+# program should succeed, output '0y 1n 0d 0h 0m 0s' (specifically test month)
+ems032@tux6:~/time_calcWrk/trunk> calculator conv 2629800
+0y1n0d0h0m0s
+# test successful
+
+# program should succeed, output '0y0n1d0h0m0s' (specifically test day)
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 86400
+0y0n1d0h0m0s
+# test successful
+
+# program should succeed, output '0y0n0d1h0m0s' (specifically test hour)
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 3600
+0y0n0d1h0m0s
+# test successful
+
+# program should succeed, output '0y0n0d0h1m0s' (specifically test minute)
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 60
+0y0n0d0h1m0s
+# test successful
+
+# program should succeed, output '0y0n0d0h0m1s' (specifically test second)
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 1
+0y0n0d0h0m1s
+# test successful
+
+# program should succeed, output '0'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 0y0n0d0h0m0s
+0
+# test successful
+
+# program should succeed, output '0'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 00y00n00d00h00m00s
+0
+# test successful
+
+# program should succeed, output '37091100'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv '01y 02n  03d   4h     5m00s '
+37091100
+# test successful
+
+# program should succeed, output '0y 0n 0d 0h23m20s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv '  1400'
+0y0n0d0h23m20s
+# test successful
+
+# program should succeed, output '34277461'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 1y1n1d1h1m1s
+34277461
+# test successful
+
+# program should succeed, output '1y 1n 1d 1h 1m 1s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 34277461
+1y1n1d1h1m1s
+# test successful
+
+# program should succeed, output '3155759999'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 99y11n30d10h29m59s
+3155759999
+# test successful
+
+# program should succeed, output '99y11n30d10h29m59s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 3155759999
+99y11n30d10h29m59s
+# test successful
+
+# program should succeed, output '1y 1n 1d 1h 1m 2s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc add 34277461 1
+1y1n1d1h1m2s
+# test successful
+
+# program should succeed, output '1y 1n 1d 1h 1m 0s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt 34277461 1
+1y1n1d1h1m0s
+# test successful
+
+# program should succeed, output '4y11n28d10h5m31s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt 74y1n1d1h5m16s 69y1n3d1h29m45s
+4y11n28d10h5m31s
+# test successful
+
+# program should succeed, times are equal
+# tests that previous case works w/ the time spec and second spec switched
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp 34277461 '1y 1n 1d 1h 1m 1s'
+equal
+# test successful
+
+# program should succeed, times are equal
+ems032@tux7:~>time_calc comp '1y 1n 1d 1h 1m 1s' 34277461
+equal
+# test successful
+
+# program should succeed, first time is less
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp 34277460 '1y 1n 1d 1h 1m 1s'
+less
+# test successful
+
+# program should succeed, first time is greater 
+# tests that previous case works w/ the time spec and second spec switched
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp '1y 1n 1d 1h 1m 1s' 34277460 
+greater
+# test successful
+
+# program should succeed, first time is greater
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp 44277461 '0y 1n 1d 1h 1m 0s'
+greater
+# test successful
+
+# program should succeed, first time is less
+# tests that previous case works w/ the time spec and second spec switched
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp '0y 1n 1d 1h 1m 0s' 44277461
+less
+# test successful
+
+# program should succeed, output '1y 1n 1d 1h 1m 1s'
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt '2y2n2d2h2m2s' '1y 1n 1d 1h 1m 1s'
+1y1n1d1h1m1s
+# test successful
+
+
+# all testing for valid input was successful 
+
+
+# testing for invalid input
+# -------------------------
+
+
+# tests for errors printed in main function (outside of other methods)
+
+# program should fail, not enough arguments
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 
+error: too few arguments
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp} 
+# test successful
+
+# program should fail, too many arguments
+ems032@tux6:~/time_calcWrk/trunk> time_calc conv 1y1n1d1h1m1s 34277461
+error: too many arguments
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp} 
+# test successful
+
+# program should fail, no command given
+ems032@tux6:~/time_calcWrk/trunk> time_calc '2y2n2d2h2m2s' '1y 1n 1d 1h 1m 1s'
+error: too few arguments
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp} 
+# test successful
+
+# program should fail, invalid command given
+ems032@tux6:~/time_calcWrk/trunk> time_calc hi '2y2n2d2h2m2s' '1y 1n 1d 1h 1m 1s'
+error: command 'hi' not recognized
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp} 
+# test successful
+
+# program should fail, too many arguments
+ems032@tux6:~/time_calcWrk/trunk> time_calc comp '2y2n2d2h2m2s' '1y 1n 1d 1h 1m 1s' 146834
+error: too many arguments
+Usage: time_calc help
+ time_calc conv 
+ time_calc {add,subt,comp} 
+# test successful
+
+# tests for errors printed in methods that aren't main
+
+# program should fail, limit exceeded 
+ems032@tux7:~/time_calcWrk/trunk> time_calc conv 99y11n30d10h30m00s
+error: time range exceeded
+# test successful
+
+# program should fail, limit exceeded 
+ems032@tux7:~/time_calcWrk/trunk> time_calc conv 99y11n30d10h30m00s
+error: time range exceeded
+# test successful
+
+# program should fail, time outside of range
+ems032@tux7:~/time_calcWrk/trunk> time_calc conv '99y 11n 30d 23h 59m 58s'
+error: time range exceeded
+# test successful
+
+# program should fail, extraneous data after what at first seems to be a valid second spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv 36788543hi
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '36788543hi' is not a valid time spec
+# test successful
+
+# program should fail, invalid format after what at first seems to be a valid time spec
+ems032@tux5:~f/time_calcWrk/trunk> time_calc conv '9y 11n 30d 23h 59md58s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '9y 11n 30d 23h 59md58s' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv  0n0d0h0m0s
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '0n0d0h0m0s' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv 'foobar99y11n30d23h59m57s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or 'foobar99y11n30d23h59m57s' is not a valid time spec
+# test successful
+
+# program should fail, time outside of range
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv '100y 11n 30d 23h 59m 54s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '100y 11n 30d 23h 59m 54s' is not a valid time spec
+# test successful
+
+# program should fail, time field outside of range
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv '1y 100n 30d 23h 59m 53s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '1y 100n 30d 23h 59m 53s' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv  99y11n30d23h59m57sfoobar
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '99y11n30d23h59m57sfoobar' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec (middle of the argument is invalid)
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv  99y11n30foobard23h59m57s
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '99y11n30foobard23h59m57s' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv  0s0m0h
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '0s0m0h' is not a valid time spec
+# test successful
+
+# program should fail, time field outside of range
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv '1y 1n 30d 23h 59m 100s  '
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '1y 1n 30d 23h 59m 100s  ' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv '-1y 2n 3d 4h 5m 6s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '-1y 2n 3d 4h 5m 6s' is not a valid time spec
+# test successful
+
+# program should fail, malformed time spec
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv '1y -2n 3d 4h 5m 6s'
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '1y -2n 3d 4h 5m 6s' is not a valid time spec
+# test successful
+
+# program should fail, malformed number of seconds
+ems032@tux5:~/time_calcWrk/trunk> time_calc conv -100
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '-100' is not a valid time spec
+# test successful
+
+# program should fail, addition would result in exceeding limit (reads time spec)
+ems032@tux5:~/time_calcWrk/trunk> time_calc add 199y11n30d10h29m59s 1
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '199y11n30d10h29m59s' is not a valid time spec
+# test successful
+
+# program should fail, addition would result in exceeding limit (reads second spec)
+ems032@tux5:~/time_calcWrk/trunk> time_calc add 9y11n30d10h29m59s 3155760000
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '3155760000' is not a valid time spec
+# test successful
+
+# program should fail, would result in negative time value (reads time spec)
+ems032@tux5:~/time_calcWrk/trunk> time_calc subt '100y 1n 1d 1h 1m 0s' 34277461
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '100y 1n 1d 1h 1m 0s' is not a valid time spec
+# test successful
+
+# program should fail, would result in negative time value (reads second spec)
+ems032@tux5:~/time_calcWrk/trunk> time_calc subt '1y 1n 1d 1h 1m 0s' 3155760000
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '3155760000' is not a valid time spec
+# test successful
+
+# program should fail, second argument is malformed
+ems032@tux5:~/time_calcWrk/trunk> time_calc comp 345 674q
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '674q' is not a valid time spec
+# test successful
+
+# program should fail, fields of time spec are out-of-order
+ems032@tux5:~/time_calcWrk/trunk> time_calc add 3678 6n2y4h36s0m13d
+error: number of seconds outside of valid range or extraneous character(s)
+error: time range exceeded, extraneous characters, or '6n2y4h36s0m13d' is not a valid time spec
+# test successful
+
+# program should fail, addition would result in exceeding limit
+ems032@tux6:~/time_calcWrk/trunk> time_calc add 69y1n3d1h29m45s 74y1n1d1h5m16s
+error: time range exceeded
+# test successful
+
+# program should fail, would result in negative time value
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt '1y 1n 1d 1h 1m 0s' 34277461
+error: negative time not allowed
+# test successful
+
+# program should fail, addition would result in exceeding limit
+ems032@tux6:~/time_calcWrk/trunk> time_calc add 99y11n30d10h29m59s 1        
+error: time range exceeded
+# test successful
+
+# program should fail, subtraction would result in negative time value
+ems032@tux6:~/time_calcWrk/trunk> time_calc subt 1 34277461         
+error: negative time not allowed
+# test successful
+
+
+
+# testing was successful for all tested cases
+
+

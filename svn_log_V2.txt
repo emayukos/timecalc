@@ -1,0 +1,165 @@
+------------------------------------------------------------------------
+r57 | ems032@USASK.CA | 2018-12-06 14:16:58 -0600 (Thu, 06 Dec 2018) | 1 line
+
+Tagging proper working version as V2.0
+------------------------------------------------------------------------
+r56 | ems032@USASK.CA | 2018-12-06 14:11:14 -0600 (Thu, 06 Dec 2018) | 1 line
+
+removed redundant error statement at the bottom of the main function for time_calc.c
+------------------------------------------------------------------------
+r55 | ems032@USASK.CA | 2018-12-06 14:08:39 -0600 (Thu, 06 Dec 2018) | 1 line
+
+tried to fix the convert code in the main function again for time_calc.c
+------------------------------------------------------------------------
+r54 | ems032@USASK.CA | 2018-12-06 14:02:51 -0600 (Thu, 06 Dec 2018) | 1 line
+
+reverted back to last last saved version of time_calc.c in order to resolve testing errors
+------------------------------------------------------------------------
+r53 | ems032@USASK.CA | 2018-12-06 13:58:57 -0600 (Thu, 06 Dec 2018) | 1 line
+
+reverted back to last saved version of time_calc.c in order to resolve testing errors
+------------------------------------------------------------------------
+r52 | ems032@USASK.CA | 2018-12-06 13:43:36 -0600 (Thu, 06 Dec 2018) | 1 line
+
+modified code for convert in main function to check that the time doesn't exceed the limit in seconds
+------------------------------------------------------------------------
+r51 | ems032@USASK.CA | 2018-12-06 00:16:25 -0600 (Thu, 06 Dec 2018) | 1 line
+
+modified makefile clean target to remove the time_calc exectuable
+------------------------------------------------------------------------
+r50 | ems032@USASK.CA | 2018-12-06 00:13:49 -0600 (Thu, 06 Dec 2018) | 1 line
+
+added usage() the last two conditionals in main function
+------------------------------------------------------------------------
+r49 | ems032@USASK.CA | 2018-12-06 00:01:03 -0600 (Thu, 06 Dec 2018) | 1 line
+
+replaced calculator with time_calc as the name of the file executable (didn't do this right in my last commit)
+------------------------------------------------------------------------
+r48 | ems032@USASK.CA | 2018-12-05 23:58:30 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified makefile to create time_calc exectuable when calling make with calculator as argument
+------------------------------------------------------------------------
+r47 | ems032@USASK.CA | 2018-12-05 23:38:44 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified interface comments for main function in time_calc.h
+------------------------------------------------------------------------
+r46 | ems032@USASK.CA | 2018-12-05 23:02:55 -0600 (Wed, 05 Dec 2018) | 1 line
+
+removed unwanted return in code for add command
+------------------------------------------------------------------------
+r45 | ems032@USASK.CA | 2018-12-05 22:54:29 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified error messages in main function
+------------------------------------------------------------------------
+r44 | ems032@USASK.CA | 2018-12-05 22:46:30 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified main function to return EXIT_SUCCESS or EXIT_FAILURE rather than 0, and called free function for all cases where time_spec variable is used
+------------------------------------------------------------------------
+r43 | ems032@USASK.CA | 2018-12-05 21:31:45 -0600 (Wed, 05 Dec 2018) | 1 line
+
+added interface comments to all functions and added missing main function prototype to time_calc.h
+------------------------------------------------------------------------
+r42 | ems032@USASK.CA | 2018-12-05 21:05:52 -0600 (Wed, 05 Dec 2018) | 1 line
+
+cleaned up comments for makefile and added name and student information to each file
+------------------------------------------------------------------------
+r41 | ems032@USASK.CA | 2018-12-05 20:54:50 -0600 (Wed, 05 Dec 2018) | 1 line
+
+third version of makefile that includes variables. also add -f option to rm command in clean action
+------------------------------------------------------------------------
+r40 | ems032@USASK.CA | 2018-12-05 20:39:01 -0600 (Wed, 05 Dec 2018) | 1 line
+
+fixed incorrect format for action in clean target for makefile
+------------------------------------------------------------------------
+r39 | ems032@USASK.CA | 2018-12-05 20:36:44 -0600 (Wed, 05 Dec 2018) | 1 line
+
+second version of makefile (after restarting) with target time_calc replaced by calculator and .PHONY added
+------------------------------------------------------------------------
+r38 | ems032@USASK.CA | 2018-12-05 13:04:15 -0600 (Wed, 05 Dec 2018) | 1 line
+
+reverted version of makefile (r34)
+------------------------------------------------------------------------
+r37 | ems032@USASK.CA | 2018-12-05 12:42:44 -0600 (Wed, 05 Dec 2018) | 1 line
+
+fixed action format for clean so it's on the next line after a tab
+------------------------------------------------------------------------
+r36 | ems032@USASK.CA | 2018-12-05 12:34:24 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified action for clean to try to get rid of warning
+------------------------------------------------------------------------
+r35 | ems032@USASK.CA | 2018-12-05 12:28:51 -0600 (Wed, 05 Dec 2018) | 1 line
+
+second version of makefile with target name changed from time_calc to calculator and variables added for readability
+------------------------------------------------------------------------
+r34 | ems032@USASK.CA | 2018-12-05 12:24:14 -0600 (Wed, 05 Dec 2018) | 1 line
+
+fourth version of time_calc.c modified to only contain the required header files, typedef for bool, and usage and main functions so that it will compile with make
+------------------------------------------------------------------------
+r33 | ems032@USASK.CA | 2018-12-05 10:20:22 -0600 (Wed, 05 Dec 2018) | 1 line
+
+removed unwanted _ from the end of local header file macros
+------------------------------------------------------------------------
+r32 | ems032@USASK.CA | 2018-12-05 01:50:45 -0600 (Wed, 05 Dec 2018) | 1 line
+
+included stdint.h to seconds.h to prevent compile error from uint32_t
+------------------------------------------------------------------------
+r31 | ems032@USASK.CA | 2018-12-05 01:42:09 -0600 (Wed, 05 Dec 2018) | 1 line
+
+modified print_time_spec function to print time specs that fit into PRIu8
+------------------------------------------------------------------------
+r30 | ems032@USASK.CA | 2018-12-05 01:37:27 -0600 (Wed, 05 Dec 2018) | 1 line
+
+removed unused data type num_seconds_t and added stdlib.h for malloc
+------------------------------------------------------------------------
+r29 | ems032@USASK.CA | 2018-12-05 00:30:38 -0600 (Wed, 05 Dec 2018) | 1 line
+
+initial version of makefile with simple format
+------------------------------------------------------------------------
+r28 | ems032@USASK.CA | 2018-12-04 21:05:27 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of time_arg.h
+------------------------------------------------------------------------
+r27 | ems032@USASK.CA | 2018-12-04 21:02:54 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of time_arg.c
+------------------------------------------------------------------------
+r26 | ems032@USASK.CA | 2018-12-04 20:57:22 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of seconds.h
+------------------------------------------------------------------------
+r25 | ems032@USASK.CA | 2018-12-04 20:54:03 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of seconds.c
+------------------------------------------------------------------------
+r24 | ems032@USASK.CA | 2018-12-04 20:41:17 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of time_spec.h
+------------------------------------------------------------------------
+r23 | ems032@USASK.CA | 2018-12-04 20:35:35 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first attempt for completed version of time_spec.c
+------------------------------------------------------------------------
+r22 | ems032@USASK.CA | 2018-12-04 20:29:42 -0600 (Tue, 04 Dec 2018) | 1 line
+
+first completed version of time_calc.h
+------------------------------------------------------------------------
+r21 | ems032@USASK.CA | 2018-12-04 20:02:05 -0600 (Tue, 04 Dec 2018) | 1 line
+
+created and added all the modules needed for time_calc to the repository (they are all blank initially)
+------------------------------------------------------------------------
+r20 | ems032@USASK.CA | 2018-12-04 10:06:16 -0600 (Tue, 04 Dec 2018) | 1 line
+
+third version of time_calc.c with is_legal_time_spec function that no longer checks whether a time spec converted to a number of seconds would be less than the program's limit on the number of seconds
+------------------------------------------------------------------------
+r19 | ems032@USASK.CA | 2018-12-04 09:31:35 -0600 (Tue, 04 Dec 2018) | 1 line
+
+second version of time_calc.c: modified code for add and subt commands so the program works on all sample log test cases
+------------------------------------------------------------------------
+r14 | ems032@USASK.CA | 2018-12-03 21:16:02 -0600 (Mon, 03 Dec 2018) | 1 line
+
+initial version of time_calc.c from assignment 3
+------------------------------------------------------------------------
+r12 | ems032@USASK.CA | 2018-12-03 21:04:01 -0600 (Mon, 03 Dec 2018) | 1 line
+
+subdirectory for time_calc program trunk
+------------------------------------------------------------------------
