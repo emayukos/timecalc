@@ -41,7 +41,7 @@ bool is_legal_seconds( char * spec) {
 	return FALSE;
 }
 
-num_seconds_t string_to_seconds( char * spec ) { // should i change this to the profs answer?
+num_seconds_t string_to_seconds( char * spec ) { 
 	num_seconds_t seconds = atoi(spec);
 	return seconds;
 }
