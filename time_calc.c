@@ -1,16 +1,14 @@
 /*
  * Emily Smith
- * 11233272
- * ems032
  */
 
 /*
  * Header files
  */
-#include <stdio.h>	// for puts(), fprintf(), sprintf()
-#include <inttypes.h> // for SCNu64, SCNu32, PRIu8, SCNu8
-#include <string.h>	// for strcat() (did i used?), strcpy()
-#include <stdlib.h> // for malloc // for EXIT_SUCCESS, EXIT_FAILURE
+#include <stdio.h>	
+#include <inttypes.h> 
+#include <string.h>	
+#include <stdlib.h> 
 
 // local headers
 # include"time_calc.h" // for bool
@@ -36,7 +34,6 @@ int main( int argc, char *argv[]) {
 		if (strcmp(argv[1],"conv") == 0) { // 0 means equal
 			// convert between a number of seconds and a time spec
 			if (argc == 3) {
-				// need to check if valid, then get and print the conversion!!
 				if (get_time_arg(argv[2], &seconds) == 1) {
 					if (is_seconds(argv[2])) {
 						time_spec_t *time_spec = seconds_to_time_spec(seconds);
@@ -73,14 +70,11 @@ int main( int argc, char *argv[]) {
 				time1 = seconds;
 				if (get_time_arg(argv[3], &seconds) == 1) { // check time2
 					time2 = seconds;
-				    // If we are processing an add command, add the numbers of seconds,
-				    // check that our internal limit (for number of seconds) is not exceeded,
-				    // convert to a time spec, print the time spec, and free the time spec.
 					if (strcmp(argv[1],"add") == 0) {
 						result = time1 + time2;
 				        if( (result >= LIMIT_SECONDS) ||
-				            (result < time1) ||        // arithmetic overflow
-				            (result < time2) )         // arithmetic overflow
+				            (result < time1) ||        
+				            (result < time2) )         
 				        {
 				            fprintf( stderr, "error: time range exceeded\n" );
 				            return( EXIT_FAILURE );
@@ -90,10 +84,6 @@ int main( int argc, char *argv[]) {
 				        free( time_spec ); // why?
 				        return( EXIT_SUCCESS );
 					}
-				    // If we are processing an subt command, check that doing the subtraction
-				    // won't result in an underflow, subtract the second number of seconds
-				    // from the first, convert the result to a time spec, print the time spec,
-				    // and free the time spec.
 					else if (strcmp(argv[1], "subt") == 0) {
 				        if( time2 > time1 ) {
 				            fprintf( stderr, "error: negative time not allowed\n" );
