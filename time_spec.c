@@ -1,6 +1,5 @@
 // Emily Smith
-// 11233272
-// ems032
+
 /*
  * implementation code for is_legal_time_spec(), string_to_time_spec(),
  * and print_time_spec().
@@ -9,12 +8,13 @@
 /*
  * Header files
  */
-#include <stdio.h>	// for puts(), fprintf(), sprintf(), and stderr
-#include <inttypes.h> // for SCNu64, SCNu32, PRIu8, SCNu8
+#include <stdio.h>	
+#include <inttypes.h> 
+#include <stdlib.h> 
 // local headers
 #include "time_calc.h"	// for bool
 #include "time_spec.h"	// for time_spec_t
-#include <stdlib.h> // for malloc
+
 
 bool is_time_spec(char * spec) {
 	uint8_t year, month, day, hour, minute, second;
@@ -53,9 +53,9 @@ time_spec_t * string_to_time_spec( char * string) {
 	if (string == NULL) {
 		return NULL;
 	}
-	time_spec_t *spec = NULL; // good to initialize pointers to NULL
-	spec = (time_spec_t *)malloc( sizeof(time_spec_t) ); // pointing to some mem
-								// of type struct point
+	time_spec_t *spec = NULL; 
+	spec = (time_spec_t *)malloc( sizeof(time_spec_t) ); 
+								
 	if (spec == NULL) {
 		return NULL;
 	}
@@ -64,7 +64,7 @@ time_spec_t * string_to_time_spec( char * string) {
 					" %"SCNu8"m" " %"SCNu8"s",&year, &month, &day, &hour,
 					&minute, &second);
 
-	spec->year = year; // dereference it then get year
+	spec->year = year; 
 	spec->month = month;
 	spec->day = day;
 	spec->hour = hour;
