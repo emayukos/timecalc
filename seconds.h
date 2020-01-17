@@ -1,15 +1,4 @@
 // Emily Smith
-// 11233272
-// ems032
-/*
- * declarations of type num_seconds_t and constants associated with that type;
- * function prototypes and interface comments for is_legal_seconds() and
- * string_to_seconds(); symbols, constants, and types that need to be known to
- * code within seconds.c; definition or declaration of any other constants,
- * symbols, names, types, or function prototypes related to the content of
- * seconds.c that need to be known by other modules
- */
-
 
 #ifndef SECONDS_H
 #define SECONDS_H
@@ -17,7 +6,7 @@
 #include <stdint.h>
 #include "time_calc.h" // need for bool
 
-typedef uint32_t num_seconds_t; // synonymous to unsigned int data type
+typedef uint32_t num_seconds_t; 
 
 #define SECONDS_IN_YEAR 31557600
 #define SECONDS_IN_MONTH 2629800
