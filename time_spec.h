@@ -18,8 +18,7 @@ the content of time_spec.c that need to be known by other modules.
 #include "time_calc.h"	// for bool
 
 /* a struct for holding a time spec. */
-typedef struct { // don't really get how this works
-// all of type unsigned char
+typedef struct { 
 uint8_t year;
 uint8_t month;
 uint8_t day;
