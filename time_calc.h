@@ -8,7 +8,7 @@
 /*
  * Type definitions
  */
-typedef unsigned char bool; // synonymous to unsigned char data type
+typedef unsigned char bool; 
 // Use standard C values for TRUE and FALSE
 #define TRUE  1
 #define FALSE 0
