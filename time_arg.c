@@ -22,13 +22,13 @@ time_spec_t * seconds_to_time_spec( num_seconds_t seconds ) {
 	if (!(seconds < 3155760000)) {
 		return NULL;
 	}
-	time_spec_t *spec = NULL; // good to initialize pointers to NULL
+	time_spec_t *spec = NULL; 
 	spec = (time_spec_t *)malloc( sizeof(time_spec_t) );
 	if (spec == NULL) {
 		return NULL;
 	}
 	// check if amount of seconds is greater than a year
-	if (seconds/(uint32_t)SECONDS_IN_YEAR >= 1){ // floor division
+	if (seconds/(uint32_t)SECONDS_IN_YEAR >= 1){ 
 		spec->year = seconds / (uint32_t)SECONDS_IN_YEAR;
 		seconds = seconds % (uint32_t)SECONDS_IN_YEAR;
 	}
